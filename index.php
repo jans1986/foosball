@@ -13,7 +13,6 @@
   $getters = new Getter();
   $players = $getters->listPlayers();
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
   <head>
@@ -123,31 +122,39 @@
         $stats = $getters->getStats();
 
         echo '<table>';
-        echo '  <th>Naam</th>';
-        echo '  <th>Wedstrijden gespeeld</th>';
-        echo '  <th>Gewonnen wedstrijden</th>';
-        echo '  <th>Verloren wedstrijden</th>';
-        echo '  <th>Ratio</th>';
-        echo '  <th>Doelsaldo</th>';
-        echo '  <th>Doelpunten voor</th>';
-        echo '  <th>Doelpunten tegen</th>';
-        echo '  <th>Punten</th>';
+
+        echo '  <thead>';
+        echo '    <tr>';
+        echo '      <th>Naam</th>';
+        echo '      <th>Wedstrijden gespeeld</th>';
+        echo '      <th>Gewonnen wedstrijden</th>';
+        echo '      <th>Verloren wedstrijden</th>';
+        echo '      <th>Ratio</th>';
+        echo '      <th>Doelsaldo</th>';
+        echo '      <th>Doelpunten voor</th>';
+        echo '      <th>Doelpunten tegen</th>';
+        echo '      <th>Punten</th>';
+        echo '    </tr>';
+        echo '  </thead>';
         
+        echo '  <tbody>';
         foreach ($stats as $player => $stat) {
           $saldo = $stat['goals'] - $stat['goals_against'];
           
-          echo '<tr>';
-          echo '  <td>'. $player .'</td>';
-          echo '  <td>'. $stat['matches'] .'</td>';
-          echo '  <td>'. $stat['wins'] .'</td>';
-          echo '  <td>'. ($stat['matches'] - $stat['wins']) .'</td>';
-          echo '  <td>'. $stat['ratio'] .'%</td>';
-          echo '  <td>'. (($saldo > 0) ? '+' : '') . $saldo .'</td>';
-          echo '  <td>'. $stat['goals'] .'</td>';
-          echo '  <td>'. $stat['goals_against'] .'</td>';
-          echo '  <td>'. $stat['score'] .'</td>';
-          echo '</tr>';
+          echo '    <tr>';
+          echo '      <td>'. $player .'</td>';
+          echo '      <td>'. $stat['matches'] .'</td>';
+          echo '      <td>'. $stat['wins'] .'</td>';
+          echo '      <td>'. ($stat['matches'] - $stat['wins']) .'</td>';
+          echo '      <td>'. $stat['ratio'] .'%</td>';
+          echo '      <td>'. (($saldo > 0) ? '+' : '') . $saldo .'</td>';
+          echo '      <td>'. $stat['goals'] .'</td>';
+          echo '      <td>'. $stat['goals_against'] .'</td>';
+          echo '      <td>'. $stat['score'] .'</td>';
+          echo '    </tr>';
         }
+        echo '  </tbody>';
+
         echo '</table>';
         ?>
       </div>
