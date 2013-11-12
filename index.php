@@ -123,15 +123,17 @@
         $stats = $getters->getStats();
 
         echo '<table>';
-        echo '  <th>Naam</th>';
-        echo '  <th>Wedstrijden gespeeld</th>';
-        echo '  <th>Gewonnen wedstrijden</th>';
-        echo '  <th>Verloren wedstrijden</th>';
-        echo '  <th>Ratio</th>';
-        echo '  <th>Doelsaldo</th>';
-        echo '  <th>Doelpunten voor</th>';
-        echo '  <th>Doelpunten tegen</th>';
-        echo '  <th>Punten</th>';
+        echo '  <tr>';
+        echo '    <th>Naam</th>';
+        echo '    <th>Wedstrijden gespeeld</th>';
+        echo '    <th>Gewonnen wedstrijden</th>';
+        echo '    <th>Verloren wedstrijden</th>';
+        echo '    <th>Ratio</th>';
+        echo '    <th>Doelsaldo</th>';
+        echo '    <th>Doelpunten voor</th>';
+        echo '    <th>Doelpunten tegen</th>';
+        echo '    <th>Punten</th>';
+        echo '  </tr>';
         
         foreach ($stats as $player => $stat) {
           $saldo = $stat['goals'] - $stat['goals_against'];
