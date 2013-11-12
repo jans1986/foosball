@@ -123,6 +123,7 @@
         $stats = $getters->getStats();
 
         echo '<table>';
+        echo '<thead>';
         echo '  <tr>';
         echo '    <th>Naam</th>';
         echo '    <th>Wedstrijden gespeeld</th>';
@@ -134,7 +135,9 @@
         echo '    <th>Doelpunten tegen</th>';
         echo '    <th>Punten</th>';
         echo '  </tr>';
+        echo '</thead>';
         
+        echo '<tbody>';
         foreach ($stats as $player => $stat) {
           $saldo = $stat['goals'] - $stat['goals_against'];
           
@@ -150,6 +153,7 @@
           echo '  <td>'. $stat['score'] .'</td>';
           echo '</tr>';
         }
+        echo '</tbody>';
         echo '</table>';
         ?>
       </div>
